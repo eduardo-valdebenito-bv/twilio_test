@@ -99,7 +99,8 @@ exports.execute = function(req, res) {
 
     const accountSid = requestBody.accountSid;
     const authToken = requestBody.authToken;
-    const to = requestBody.to;
+    const to = !requestBody.to.includes("+") ? "+" + requestBody.to : requestBody.to;
+    console.log("TO: ", to);
     const from = requestBody.messagingService;
     const body = requestBody.body;
     // {
