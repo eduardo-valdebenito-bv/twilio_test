@@ -102,13 +102,19 @@ exports.execute = function(req, res) {
     const to = requestBody.to;
     const from = requestBody.messagingService;
     const body = requestBody.body;
-
+    // {
+    //     "accountSid":"AC4453bbddc51ce92605bbf59fa87a0fc1",
+    //     "authToken":"d8efd066396bc83bd22e34afdf651172",
+    //     "messagingService":"MGd7d0460058d7dd5c23c9d078278ec270",
+    //     "body":"Hola desde SFMC JB con Twilio",
+    //     "to":"56962065418"
+    // }
     const client = require('twilio')(accountSid, authToken);
 
     client.messages
         .create({
             body: body,
-            messagingService: messagingService,
+            messagingService: from,
             to: to
         })
         .then(message => console.log(message.sid))
