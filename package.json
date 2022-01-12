@@ -1,5 +1,5 @@
 {
-  "name": "twilio-journey-builder-example", 
+  "name": "twilio-journey-builder-example",
   "version": "1.0.0",
   "description": "Journey Builder Activity Template",
   "engines": {
@@ -37,4 +37,4 @@
     "twilio": "^3.36.0",
     "uglify-js": "^3.6.4"
   }
-} 
+}

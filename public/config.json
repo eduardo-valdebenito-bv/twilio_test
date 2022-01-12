@@ -1,8 +1,8 @@
 {
     "workflowApiVersion": "1.1",
     "metaData": {
-       "icon": "images/iconSmall.png",
-       "category": "message"
+        "icon": "images/iconSmall.png",
+        "category": "message"
     },
     "type": "REST",
     "lang": {
@@ -19,7 +19,7 @@
                 "to": "{{Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.celular}}"
             }],
             "outArguments": [],
-            "url": "https://polar-escarpment-01763.herokuapp.com/execute",
+            "url": "https://rocky-woodland-79006.herokuapp.com/execute",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -28,9 +28,9 @@
         }
     },
     "configurationArguments": {
-        "applicationExtensionKey": "679f3911-47e7-4a22-b40c-0dd619316c13",
+        "applicationExtensionKey": "2b4f15dd-b7db-48bd-b827-a5d1a78aba09",
         "save": {
-            "url": "https://polar-escarpment-01763.herokuapp.com/save",
+            "url": "https://rocky-woodland-79006.herokuapp.com/save",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -38,7 +38,7 @@
             "timeout": 2000
         },
         "publish": {
-            "url": "https://polar-escarpment-01763.herokuapp.com/publish",
+            "url": "https://rocky-woodland-79006.herokuapp.com/publish",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -46,7 +46,7 @@
             "timeout": 2000
         },
         "validate": {
-            "url": "https://polar-escarpment-01763.herokuapp.com/validate",
+            "url": "https://rocky-woodland-79006.herokuapp.com/validate",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -54,63 +54,62 @@
             "timeout": 2000
         },
         "stop": {
-            "url": "https://polar-escarpment-01763.herokuapp.com/stop",
+            "url": "https://rocky-woodland-79006.herokuapp.com/stop",
             "verb": "POST",
             "body": "",
             "format": "json",
             "useJwt": false,
             "timeout": 2000
-       }
+        }
     },
     "wizardSteps": [
-       { "label": "Create SMS Message", "key": "step1" }
+        { "label": "Create SMS Message", "key": "step1" }
     ],
     "userInterfaces": {
-       "configModal": {
-           "height": 600,
-           "width": 800,
-           "fullscreen": false
-       }
+        "configModal": {
+            "height": 600,
+            "width": 800,
+            "fullscreen": false
+        }
     },
     "schema": {
         "arguments": {
             "execute": {
-                "inArguments": [
-                    {
+                "inArguments": [{
                         "accountSid": {
                             "dataType": "String",
                             "isNullable": false,
-                            "direction": "out"   
+                            "direction": "out"
                         }
-                    },                    
+                    },
                     {
                         "authToken": {
                             "dataType": "String",
                             "isNullable": false,
-                            "direction": "out"   
+                            "direction": "out"
                         }
-                    },                    
+                    },
                     {
                         "from": {
                             "dataType": "Phone",
                             "isNullable": true,
-                            "direction": "out"   
+                            "direction": "out"
                         }
-                    },                    
+                    },
                     {
                         "to": {
                             "dataType": "Phone",
                             "isNullable": false,
-                            "direction": "out"   
+                            "direction": "out"
                         }
                     },
                     {
                         "body": {
                             "dataType": "String",
                             "isNullable": false,
-                            "direction": "out"   
+                            "direction": "out"
                         }
-                    },                    
+                    },
                     {
                         "email": {
                             "dataType": "Email",
