@@ -28,6 +28,9 @@ define([
         connection.trigger('ready');
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
+        if (window.location.host.includes('localhost')) {
+            initialize({ "name": "", "id": null, "key": "REST-7", "type": "REST", "arguments": { "execute": { "inArguments": [{ "email": "{{Contact.Default.EmailAddress}}", "to": "{{Contact.Attribute.TwilioV1.TwilioNumber}}" }], "outArguments": [], "url": "https://twilio-sfmc.herokuapp.com/journeybuilder/execute", "verb": "POST", "body": "", "format": "json", "useJwt": false, "timeout": 2000 } }, "configurationArguments": { "applicationExtensionKey": "679f3911-47e7-4a22-b40c-0dd619316c13", "save": { "url": "https://twilio-sfmc.herokuapp.com/save", "verb": "POST", "body": "", "format": "json", "useJwt": false, "timeout": 2000 }, "publish": { "url": "https://twilio-sfmc.herokuapp.com/publish", "verb": "POST", "body": "", "format": "json", "useJwt": false, "timeout": 2000 }, "validate": { "url": "https://twilio-sfmc.herokuapp.com/validate", "verb": "POST", "body": "", "format": "json", "useJwt": false, "timeout": 2000 }, "stop": { "url": "https://twilio-sfmc.herokuapp.com/stop", "verb": "POST", "body": "", "format": "json", "useJwt": false, "timeout": 2000 } }, "metaData": { "icon": "https://polar-escarpment-01763.herokuapp.com/images/iconSmall.png", "category": "message", "iconSmall": null, "statsContactIcon": null, "original_icon": "images/iconSmall.png" }, "schema": { "arguments": { "execute": { "inArguments": [{ "accountSid": { "dataType": "String", "isNullable": false, "direction": "out" } }, { "authToken": { "dataType": "String", "isNullable": false, "direction": "out" } }, { "from": { "dataType": "Phone", "isNullable": true, "direction": "out" } }, { "to": { "dataType": "Phone", "isNullable": false, "direction": "out" } }, { "body": { "dataType": "String", "isNullable": false, "direction": "out" } }, { "email": { "dataType": "Email", "isNullable": true, "direction": "out" } }], "outArguments": [] } } }, "editable": true, "outcomes": [{ "next": "WAITBYDURATION-2", "metaData": { "invalid": false } }], "errors": null });
+        }
     }
 
     function initialize(data) {
@@ -87,6 +90,10 @@ define([
         // Response: endpoints = { restHost: <url> } i.e. "rest.s1.qa1.exacttarget.com"
         console.log("Get End Points function: " + JSON.stringify(endpoints));
     }
+
+    $('#guardar').on('click', () => {
+        save();
+    })
 
     function save() {
 
