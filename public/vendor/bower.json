@@ -1,22 +1,22 @@
 {
-  "name": "twilio-journey-builder-example",
-  "homepage": "https://github.com/jmaitz/twilio-sfmc",
-  "authors": [
-    "John Maitz"
-  ],
-  "description": "",
-  "main": "",
-  "license": "MIT",
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "salesforce-lightning-design-system": "^2.3.1",
-    "jquery": "^3.2.1"
-  }
+    "name": "twilio-journey-builder-example2",
+    "homepage": "https://github.com/eduardo-valdebenito-bv/twilio_test",
+    "authors": [
+        "eduardo"
+    ],
+    "description": "",
+    "main": "",
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "salesforce-lightning-design-system": "^2.3.1",
+        "jquery": "^3.2.1"
+    }
 }
