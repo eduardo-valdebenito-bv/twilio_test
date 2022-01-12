@@ -6,22 +6,20 @@
     },
     "type": "REST",
     "lang": {
-       "en-US": {
-           "name": "Twilio SMS",
-           "description": "Send Twilio SMS with Journey Builder",
-           "TwilioMessage":"test"
-       }
+        "en-US": {
+            "name": "Twilio SMS",
+            "description": "Send Twilio SMS with Journey Builder",
+            "TwilioMessage": "test"
+        }
     },
     "arguments": {
         "execute": {
-            "inArguments": [
-                {
-                  "email": "{{Contact.Default.EmailAddress}}",
-                  "to": "{{Contact.Attribute.TwilioV1.TwilioNumber}}" 
-                }               
-            ],
+            "inArguments": [{
+                "email": "tmnt@bicevida.cl",
+                "to": "{{Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.celular}}"
+            }],
             "outArguments": [],
-            "url": "https://twilio-sfmc.herokuapp.com/journeybuilder/execute",
+            "url": "https://polar-escarpment-01763.herokuapp.com/execute",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -30,33 +28,33 @@
         }
     },
     "configurationArguments": {
-      "applicationExtensionKey": "e962d1d4-8b07-4e76-89be-ecd1f1423b6d",
-       "save": {
-           "url": "https://twilio-sfmc.herokuapp.com/save",
+        "applicationExtensionKey": "679f3911-47e7-4a22-b40c-0dd619316c13",
+        "save": {
+            "url": "https://polar-escarpment-01763.herokuapp.com/save",
             "verb": "POST",
             "body": "",
             "format": "json",
             "useJwt": false,
             "timeout": 2000
-       },
-       "publish": {
-           "url": "https://twilio-sfmc.herokuapp.com/publish",
+        },
+        "publish": {
+            "url": "https://polar-escarpment-01763.herokuapp.com/publish",
             "verb": "POST",
             "body": "",
             "format": "json",
             "useJwt": false,
             "timeout": 2000
-       },
-       "validate": {
-           "url": "https://twilio-sfmc.herokuapp.com/validate",
+        },
+        "validate": {
+            "url": "https://polar-escarpment-01763.herokuapp.com/validate",
             "verb": "POST",
             "body": "",
             "format": "json",
             "useJwt": false,
             "timeout": 2000
-       },
-       "stop": {
-           "url": "https://twilio-sfmc.herokuapp.com/stop",
+        },
+        "stop": {
+            "url": "https://polar-escarpment-01763.herokuapp.com/stop",
             "verb": "POST",
             "body": "",
             "format": "json",
