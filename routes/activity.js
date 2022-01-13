@@ -5,6 +5,7 @@ var util = require('util');
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var http = require('https');
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 exports.logExecuteData = [];
 
@@ -200,5 +201,14 @@ exports.webhook = function(req, res) {
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
     logData(req);
-    res.send(200, 'Webhook');
+
+    const twiml = new MessagingResponse();
+
+    // Access the message body and the number it was sent from.
+    console.log(`Incoming message from ${req.body.From}: ${req.body.Body}`);
+
+    twiml.message('The Robots are coming! Head for the hills!');
+
+    res.writeHead(200, { 'Content-Type': 'text/xml' });
+    res.end(twiml.toString());
 };
