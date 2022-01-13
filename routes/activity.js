@@ -1,6 +1,5 @@
 'use strict';
 var util = require('util');
-const fetch = require("node-fetch");
 // Deps
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
@@ -208,26 +207,31 @@ exports.webhook = function(req, res) {
     console.log(`1 BODY: ${req.body}`);
     console.log(`2 BODY: ${JSON.stringify(req.body)}`);
     console.log(`Incoming message from ${req.body.From}: ${req.body.Body}`);
-    var raw = JSON.stringify({
-        "evento": "TWILIO_PRUEBAS_EDU",
-        "rut": "18448049",
-        "atributos": {
-            "RUT": "18448049",
-            "DATA": "{\"monto\":\"$150.000\",\"tasa\":\"00,37%\",\"cae\":\"21,99%\",\"plazo\":\"3\",\"cuota\":\"$35.000\",\"id_simulacion\":\"522594\",\"rut\":\"14456489\"}",
-            "ID_SIMULACION": "123",
-            "TELEFONO": !req.body.From.includes("+") ? "+" + req.body.From : req.body.From
-        }
-    });
-    var requestOptions = {
-        method: "POST",
-        headers: {
+    var settings = {
+        "url": "https://apidev.bicevida.cl/desfmc/journey",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "x-api-key": "YZvvSeqD9W9eCHwYDKQK1aJtto0j2KO9ady99qYv",
             "Content-Type": "application/json"
         },
-        body: raw,
-        redirect: 'follow'
+        "data": JSON.stringify({
+            "evento": "TWILIO_PRUEBAS_EDU",
+            "rut": "18448049",
+            "atributos": {
+                "RUT": "18448049",
+                "DATA": "{\"monto\":\"$150.000\",\"tasa\":\"00,37%\",\"cae\":\"21,99%\",\"plazo\":\"3\",\"cuota\":\"$35.000\",\"id_simulacion\":\"522594\",\"rut\":\"14456489\"}",
+                "ID_SIMULACION": "123",
+                "TELEFONO": !req.body.From.includes("+") ? "+" + req.body.From : req.body.From
+            }
+        }),
     };
-    const response = await fetch(url, requestOptions).then((r) => { return r.json() }).catch((e) => { console.log(e); return null });
-    console.log(`call_service response: ${JSON.stringify(response)}`)
+
+    $.ajax(settings).done(function(response) {
+        console.log(response);
+    });
+    // const response = await fetch(url, requestOptions).then((r) => { return r.json() }).catch((e) => { console.log(e); return null });
+    // console.log(`call_service response: ${JSON.stringify(response)}`)
 
     twiml.message('The Robots are coming! Head for the hills!');
 

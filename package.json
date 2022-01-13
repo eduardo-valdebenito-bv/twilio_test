@@ -33,7 +33,6 @@
         "request": "^2.81.0",
         "require": "^2.4.20",
         "twilio": "^3.33.0",
-        "uglify-js": "^3.6.4",
-        "node-fetch": "^2.6.1"
+        "uglify-js": "^3.6.4"
     }
 }
