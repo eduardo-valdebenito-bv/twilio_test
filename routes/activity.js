@@ -116,10 +116,34 @@ exports.execute = function(req, res) {
         .create({
             body: body,
             //messagingService: from,
-            from: "+19592156601",
+            from: "+56964590156",
             to: to
         })
-        .then(message => console.log(message.sid))
+        .then(message => {
+            var settings = {
+                "url": "https://apidev.bicevida.cl/desfmc/journey",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "x-api-key": "YZvvSeqD9W9eCHwYDKQK1aJtto0j2KO9ady99qYv",
+                    "Content-Type": "application/json"
+                },
+                "data": JSON.stringify({
+                    "evento": "TWILIO_PRUEBAS_EDU",
+                    "rut": requestBody.rut,
+                    "atributos": {
+                        "RUT": requestBody.rut,
+                        "DATA": JSON.stringify(body),
+                        "ID_SIMULACION": "123",
+                        "TELEFONO": !to.includes("+") ? "+" + to : to,
+                        "ID_SMS": message.sid
+                    }
+                }),
+            };
+            $.ajax(settings).done(function(response) {
+                console.log(response);
+            });
+        })
         .done();
 
 
