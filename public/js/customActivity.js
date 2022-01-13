@@ -107,8 +107,8 @@ define([
             "authToken": authToken,
             "messagingService": messagingService,
             "body": body,
-            "to": "{{Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.celular}}", //<----This should map to your data extension name and phone number column
-            "rut": "Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.RUT"
+            "to": "{{Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.celular}}",
+            "rut": "{{Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.RUT}}"
         }];
         payload["arguments"]["execute"]["url"] = "https://rocky-woodland-79006.herokuapp.com/execute";
 
