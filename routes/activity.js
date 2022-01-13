@@ -126,8 +126,12 @@ exports.execute = function(req, res) {
                 "rut": requestBody.rut,
                 "atributos": {
                     "RUT": requestBody.rut,
-                    "DATA": JSON.stringify(body),
-                    "ID_SIMULACION": "123",
+                    "MONTO": requestBody.monto,
+                    "TASA": requestBody.tasa,
+                    "CAE": requestBody.cae,
+                    "PLAZO": requestBody.plazo,
+                    "CUOTA": requestBody.cuota,
+                    "ID_SIMULACION": "",
                     "TELEFONO": !to.includes("+") ? "+" + to : to,
                     "ID_SMS": message.sid
                 }
@@ -141,7 +145,7 @@ exports.execute = function(req, res) {
                 body: raw,
                 redirect: 'follow'
             };
-            fetch("https://apidev.bicevida.cl/desfmc/journey", requestOptions).then((r) => { return r.json() }).catch((e) => { console.log(e); return null });
+            fetch("https://apidev.bicevida.cl/desfmc/journey", requestOptions).then((r) => { return console.log(r.json()) }).catch((e) => { console.log(e); return null });
 
 
         })
@@ -253,7 +257,7 @@ exports.webhook = function(req, res) {
         redirect: 'follow'
     };
 
-    fetch("https://apidev.bicevida.cl/desfmc/journey", requestOptions).then((r) => { return r.json() }).catch((e) => { console.log(e); return null });
+    fetch("https://apidev.bicevida.cl/desfmc/journey", requestOptions).then((r) => { return console.log(r.json()); }).catch((e) => { console.log(e); return null });
     // const response = await fetch(url, requestOptions).then((r) => { return r.json() }).catch((e) => { console.log(e); return null });
     // console.log(`call_service response: ${JSON.stringify(response)}`)
 

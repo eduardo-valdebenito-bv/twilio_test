@@ -106,9 +106,15 @@ define([
             "accountSid": accountSid,
             "authToken": authToken,
             "messagingService": messagingService,
-            "body": body,
+            "body": body + " - {{Event.APIEvent-ff880215-ba52-a7ca-bce8-33bf07ac6432.MONTO}}",
             "to": "{{Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.celular}}",
-            "rut": "{{Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.RUT}}"
+            "monto": "{{Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.monto}}",
+            "tasa": "{{Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.tasa}}",
+            "cae": "{{Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.cae}}",
+            "plazo": "{{Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.plazo}}",
+            "cuota": "{{Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.cuota}}",
+            "id_simulacion": "{{Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.id_simulacion}}",
+            "telefono": "{{Event.DEAudience-b5a4b514-4a2e-9801-26b1-1ceda1eace0c.telefono}}"
         }];
         payload["arguments"]["execute"]["url"] = "https://rocky-woodland-79006.herokuapp.com/execute";
 
